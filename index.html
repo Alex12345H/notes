@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Notizen</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<h1>Meine Notizen</h1>
+
+<input type="text" id="noteInput" placeholder="Hier Notiz eingeben">
+<button onclick="addNote()">Notiz hinzufügen</button>
+
+<div id="noteList">
+  <!-- Hier werden die Notizen dynamisch angezeigt -->
+</div>
+
+<button onclick="showNotes()">Notizen anzeigen</button>
+<div id="notesOutput">
+  <!-- Hier werden die angezeigten Notizen angezeigt -->
+</div>
+
+<div>
+  <input type="checkbox" id="checkbox"> Erledigt
+  <button onclick="deleteNotes()">Notizen löschen</button>
+</div>
+
+<script src="notes.js"></script>
+</body>
+</html>
