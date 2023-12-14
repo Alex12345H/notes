@@ -7,6 +7,7 @@ function addNote() {
   if (note !== '') {
     notes.push({ content: note, done: false });
     noteInput.value = '';
+    alert(`Notiz "${note}" wurde erfolgreich hinzugefügt!`);
   }
 }
 
@@ -30,6 +31,20 @@ function showNotes() {
 
 function deleteNotes() {
   let checkboxes = document.querySelectorAll('input[type="checkbox"]');
+  let checked = false;
+
+  for (let i = 0; i < checkboxes.length; i++) {
+    if (checkboxes[i].checked) {
+      checked = true;
+      break;
+    }
+  }
+
+  if (!checked) {
+    alert('Bitte eine Notiz auswählen.');
+    return;
+  }
+
   let updatedNotes = [];
 
   for (let i = 0; i < checkboxes.length; i++) {
@@ -41,4 +56,11 @@ function deleteNotes() {
   notes = updatedNotes;
   showNotes();
 }
+
+document.getElementById('noteInput').addEventListener('keypress', function (e) {
+  if (e.key === 'Enter') {
+    addNote();
+  }
+});
+
 
