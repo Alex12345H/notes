@@ -20,4 +20,5 @@ h1 {
   padding: 8px 12px;
   margin-right: 5px;
   cursor: pointer;
+  font-size: 18px; /* Schriftgröße für Buttons festlegen */
 }
