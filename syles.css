@@ -1,33 +1,23 @@
-/* Hier können Sie Ihre gewünschten Styles hinzufügen */
-/* Beispiel: Stile für Überschriften, Eingabefelder, Buttons, Notizen etc. */
-
 body {
   font-family: Arial, sans-serif;
+  font-size: 18px; /* Allgemeine Schriftgröße erhöhen */
 }
 
 h1 {
   text-align: center;
 }
 
-#noteInput {
-  width: 300px;
+.largerInput {
+  width: 400px; /* Eingabefeld vergrößern */
   margin-bottom: 10px;
+  font-size: 18px; /* Schriftgröße der Eingabe erhöhen */
 }
 
-#noteList {
-  margin-bottom: 10px;
-}
-
-#notesOutput {
-  border: 1px solid #ccc;
-  padding: 10px;
-  margin-bottom: 10px;
-}
-
-#notesOutput div {
-  margin-bottom: 5px;
-}
-
-input[type="checkbox"] {
+.blueButton {
+  background-color: darkblue;
+  color: white;
+  border: none;
+  padding: 8px 12px;
   margin-right: 5px;
+  cursor: pointer;
 }
