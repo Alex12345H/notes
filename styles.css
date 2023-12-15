@@ -1,43 +1,46 @@
-let notes = [];
-
-function addNote() {
-  let noteInput = document.getElementById('noteInput');
-  let note = noteInput.value.trim();
-
-  if (note !== '') {
-    notes.push({ content: note, done: false });
-    noteInput.value = '';
-    document.getElementById('notesOutput').innerHTML = 'Notiz hochgeladen';
-  }
+body {
+  font-family: Arial, sans-serif;
+  font-size: 18px;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  height: 100vh;
 }
 
-function showNotes() {
-  let notesOutput = document.getElementById('notesOutput');
-  notesOutput.innerHTML = '';
-
-  if (notes.length === 0) {
-    notesOutput.innerHTML = 'Keine Notizen vorhanden.';
-  } else {
-    for (let i = 0; i < notes.length; i++) {
-      let note = notes[i];
-      let checkbox = note.done ? 'checked' : '';
-      let textDecoration = note.done ? 'text-decoration: line-through;' : '';
-      notesOutput.innerHTML += `<div style="${textDecoration}">
-                                  <input type="checkbox" id="checkbox${i}" ${checkbox}>
-                                  <label for="checkbox${i}">${note.content}</label>
-                                </div>`;
-    }
-  }
+.container {
+  text-align: center;
 }
 
-function deleteNotes() {
-  let checkboxes = document.querySelectorAll('input[type="checkbox"]');
+.centered {
+  margin-bottom: 10px;
+}
 
-  for (let i = 0; i < checkboxes.length; i++) {
-    if (checkboxes[i].checked) {
-      notes[i].done = true;
-    }
-  }
+.largerInput {
+  width: 400px;
+  margin-bottom: 10px;
+  font-size: 18px;
+}
 
-  showNotes();
+.blueButton {
+  background-color: darkblue;
+  color: white;
+  border: none;
+  padding: 8px 12px;
+  margin-right: 5px;
+  cursor: pointer;
+  font-size: 18px;
+}
+
+#notesOutput {
+  font-size: 18px;
+}
+
+.footer {
+  position: fixed;
+  bottom: 10px;
+  text-align: center;
+  width: 100%;
+  color: #888;
 }
