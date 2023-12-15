@@ -6,23 +6,26 @@
 </head>
 <body>
 
-<h1>Meine Notizen</h1>
+<div class="container">
+  <h1>Deine Notizen</h1>
 
-<input type="text" id="noteInput" placeholder="Hier Notiz eingeben" class="largerInput">
-<button class="blueButton" onclick="addNote()">Notiz hinzufügen</button>
+  <div class="centered">
+    <input type="text" id="noteInput" placeholder="Hier Notiz eingeben" class="largerInput">
+    <button class="blueButton" onclick="addNote()">Notiz hinzufügen</button>
+  </div>
 
-<div id="noteList">
-  <!-- Hier werden die Notizen dynamisch angezeigt -->
-</div>
+  <div id="noteList">
+    <!-- Hier werden die Notizen dynamisch angezeigt -->
+  </div>
 
-<button class="blueButton" onclick="showNotes()">Notizen anzeigen</button>
-<div id="notesOutput">
-  <!-- Hier werden die angezeigten Notizen angezeigt -->
-</div>
+  <div class="centered">
+    <button class="blueButton" onclick="showNotes()">Notizen anzeigen</button>
+    <div id="notesOutput">
+      <!-- Hier werden die angezeigten Notizen angezeigt -->
+    </div>
 
-<div>
-  <input type="checkbox" id="checkbox"> Erledigt
-  <button class="blueButton" onclick="deleteNotes()">Notizen löschen</button>
+    <button class="blueButton" onclick="deleteNotes()">Erledigt</button>
+  </div>
 </div>
 
 <script src="notes.js"></script>
