@@ -1,24 +1,43 @@
-body {
-  font-family: Arial, sans-serif;
-  font-size: 18px; /* Allgemeine Schriftgröße erhöhen */
+let notes = [];
+
+function addNote() {
+  let noteInput = document.getElementById('noteInput');
+  let note = noteInput.value.trim();
+
+  if (note !== '') {
+    notes.push({ content: note, done: false });
+    noteInput.value = '';
+    document.getElementById('notesOutput').innerHTML = 'Notiz hochgeladen';
+  }
 }
 
-h1 {
-  text-align: center;
+function showNotes() {
+  let notesOutput = document.getElementById('notesOutput');
+  notesOutput.innerHTML = '';
+
+  if (notes.length === 0) {
+    notesOutput.innerHTML = 'Keine Notizen vorhanden.';
+  } else {
+    for (let i = 0; i < notes.length; i++) {
+      let note = notes[i];
+      let checkbox = note.done ? 'checked' : '';
+      let textDecoration = note.done ? 'text-decoration: line-through;' : '';
+      notesOutput.innerHTML += `<div style="${textDecoration}">
+                                  <input type="checkbox" id="checkbox${i}" ${checkbox}>
+                                  <label for="checkbox${i}">${note.content}</label>
+                                </div>`;
+    }
+  }
 }
 
-.largerInput {
-  width: 400px; /* Eingabefeld vergrößern */
-  margin-bottom: 10px;
-  font-size: 18px; /* Schriftgröße der Eingabe erhöhen */
-}
+function deleteNotes() {
+  let checkboxes = document.querySelectorAll('input[type="checkbox"]');
 
-.blueButton {
-  background-color: darkblue;
-  color: white;
-  border: none;
-  padding: 8px 12px;
-  margin-right: 5px;
-  cursor: pointer;
-  font-size: 18px; /* Schriftgröße für Buttons festlegen */
+  for (let i = 0; i < checkboxes.length; i++) {
+    if (checkboxes[i].checked) {
+      notes[i].done = true;
+    }
+  }
+
+  showNotes();
 }
