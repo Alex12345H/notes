@@ -1,45 +1,46 @@
-body {
-  font-family: Arial, sans-serif;
-  font-size: 18px; /* Allgemeine Schriftgröße erhöhen */
-  margin: 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
+let notes = [];
+
+function addNote() {
+  let noteInput = document.getElementById('noteInput');
+  let note = noteInput.value.trim();
+
+  if (note !== '') {
+    notes.push({ content: note, done: false });
+    noteInput.value = '';
+    document.getElementById('notesOutput').innerHTML = `Notiz "${note}" wurde gespeichert`;
+    showNotes();
+  }
 }
 
-.container {
-  text-align: center;
+function showNotes() {
+  let noteList = document.getElementById('noteList');
+  noteList.innerHTML = '';
+
+  if (notes.length === 0) {
+    noteList.innerHTML = 'Keine Notizen vorhanden.';
+  } else {
+    for (let i = 0; i < notes.length; i++) {
+      let note = notes[i];
+      let textDecoration = note.done ? 'text-decoration: line-through;' : '';
+      noteList.innerHTML += `<div style="${textDecoration}">
+                                <input type="checkbox" id="checkbox${i}" onchange="toggleDone(${i})">
+                                <label for="checkbox${i}">${note.content}</label>
+                            </div>`;
+    }
+  }
 }
 
-.centered {
-  margin-bottom: 10px;
+function deleteSelectedNote() {
+  let checkboxes = document.querySelectorAll('input[type="checkbox"]');
+  for (let i = checkboxes.length - 1; i >= 0; i--) {
+    if (checkboxes[i].checked) {
+      notes.splice(i, 1);
+    }
+  }
+  showNotes();
 }
 
-.largerInput {
-  width: 400px; /* Eingabefeld vergrößern */
-  margin-bottom: 10px;
-  font-size: 18px; /* Schriftgröße der Eingabe erhöhen */
-}
-
-.blueButton {
-  background-color: darkblue;
-  color: white;
-  border: none;
-  padding: 8px 12px;
-  margin-right: 5px;
-  cursor: pointer;
-  font-size: 18px; /* Schriftgröße für Buttons festlegen */
-}
-
-#notesOutput {
-  border: 1px solid #ccc;
-  padding: 10px;
-  margin-bottom: 10px;
-  text-align: left;
-}
-
-#notesOutput div {
-  margin-bottom: 5px;
-  font-size: 18px; /* Schriftgröße der Notizen erhöhen */
+function toggleDone(index) {
+  notes[index].done = !notes[index].done;
+  showNotes();
 }
