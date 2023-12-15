@@ -1,66 +1,45 @@
-let notes = [];
-
-function addNote() {
-  let noteInput = document.getElementById('noteInput');
-  let note = noteInput.value.trim();
-
-  if (note !== '') {
-    notes.push({ content: note, done: false });
-    noteInput.value = '';
-    alert(`Notiz "${note}" wurde erfolgreich hinzugefügt!`);
-  }
+body {
+  font-family: Arial, sans-serif;
+  font-size: 18px; /* Allgemeine Schriftgröße erhöhen */
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
 }
 
-function showNotes() {
-  let notesOutput = document.getElementById('notesOutput');
-  notesOutput.innerHTML = '';
-
-  if (notes.length === 0) {
-    notesOutput.innerHTML = 'Keine Notizen vorhanden.';
-  } else {
-    for (let i = 0; i < notes.length; i++) {
-      let note = notes[i];
-      let checkbox = note.done ? 'checked' : '';
-      notesOutput.innerHTML += `<div>
-                                  <input type="checkbox" id="checkbox${i}" ${checkbox}>
-                                  <label for="checkbox${i}">${note.content}</label>
-                                </div>`;
-    }
-  }
+.container {
+  text-align: center;
 }
 
-function deleteNotes() {
-  let checkboxes = document.querySelectorAll('input[type="checkbox"]');
-  let checked = false;
-
-  for (let i = 0; i < checkboxes.length; i++) {
-    if (checkboxes[i].checked) {
-      checked = true;
-      break;
-    }
-  }
-
-  if (!checked) {
-    alert('Bitte eine Notiz auswählen.');
-    return;
-  }
-
-  let updatedNotes = [];
-
-  for (let i = 0; i < checkboxes.length; i++) {
-    if (!checkboxes[i].checked) {
-      updatedNotes.push(notes[i]);
-    }
-  }
-
-  notes = updatedNotes;
-  showNotes();
+.centered {
+  margin-bottom: 10px;
 }
 
-document.getElementById('noteInput').addEventListener('keypress', function (e) {
-  if (e.key === 'Enter') {
-    addNote();
-  }
-});
+.largerInput {
+  width: 400px; /* Eingabefeld vergrößern */
+  margin-bottom: 10px;
+  font-size: 18px; /* Schriftgröße der Eingabe erhöhen */
+}
 
+.blueButton {
+  background-color: darkblue;
+  color: white;
+  border: none;
+  padding: 8px 12px;
+  margin-right: 5px;
+  cursor: pointer;
+  font-size: 18px; /* Schriftgröße für Buttons festlegen */
+}
 
+#notesOutput {
+  border: 1px solid #ccc;
+  padding: 10px;
+  margin-bottom: 10px;
+  text-align: left;
+}
+
+#notesOutput div {
+  margin-bottom: 5px;
+  font-size: 18px; /* Schriftgröße der Notizen erhöhen */
+}
