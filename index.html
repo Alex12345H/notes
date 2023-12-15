@@ -10,8 +10,7 @@
   <h1>Meine Notizen</h1>
 
   <div class="centered">
-    <input type="text" id="noteInput" placeholder="Notiz eingeben" class="largerInput">
-    <button class="blueButton" onclick="addNote()">Notiz hinzufügen</button>
+    <input type="text" id="noteInput" placeholder="Notiz eingeben" class="largerInput" onkeypress="addOnEnter(event)">
   </div>
 
   <div id="noteList" class="centered">
@@ -19,19 +18,20 @@
   </div>
 
   <div class="centered">
-    <button class="blueButton" onclick="deleteSelectedNote()">Löschen</button>
     <div id="notesOutput" class="largerText">
       <!-- Hier wird die Nachricht über gespeicherte Notiz angezeigt -->
     </div>
 
-    <button class="blueButton" onclick="toggleStrikeThrough()">Erledigt</button>
+    <button class="blueButton" onclick="deleteSelectedNotes()">Ausgewählte löschen</button>
   </div>
 </div>
 
 <footer class="footer">
-  <p>(c) Alex12345H</p>
+  <p><a href="https://github.com/Alex12345H/notes" target="_blank">(c) Alex12345H</a></p>
 </footer>
 
 <script src="notes.js"></script>
 </body>
 </html>
+
+
