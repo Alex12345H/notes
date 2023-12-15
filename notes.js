@@ -12,6 +12,12 @@ function addNote() {
   }
 }
 
+function addOnEnter(event) {
+  if (event.key === 'Enter') {
+    addNote();
+  }
+}
+
 function showNotes() {
   let noteList = document.getElementById('noteList');
   noteList.innerHTML = '';
@@ -30,7 +36,7 @@ function showNotes() {
   }
 }
 
-function deleteSelectedNote() {
+function deleteSelectedNotes() {
   let checkboxes = document.querySelectorAll('input[type="checkbox"]');
   for (let i = checkboxes.length - 1; i >= 0; i--) {
     if (checkboxes[i].checked) {
