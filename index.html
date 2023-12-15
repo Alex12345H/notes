@@ -1,32 +1,36 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Notizen</title>
+  <title>Notiz-App</title>
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
 <div class="container">
-  <h1>Deine Notizen</h1>
+  <h1>Meine Notizen</h1>
 
   <div class="centered">
-    <input type="text" id="noteInput" placeholder="Hier Notiz eingeben" class="largerInput">
+    <input type="text" id="noteInput" placeholder="Notiz eingeben" class="largerInput">
     <button class="blueButton" onclick="addNote()">Notiz hinzufügen</button>
   </div>
 
-  <div id="noteList">
+  <div id="noteList" class="centered">
     <!-- Hier werden die Notizen dynamisch angezeigt -->
   </div>
 
   <div class="centered">
-    <button class="blueButton" onclick="showNotes()">Notizen anzeigen</button>
-    <div id="notesOutput">
-      <!-- Hier werden die angezeigten Notizen angezeigt -->
+    <button class="blueButton" onclick="deleteSelectedNote()">Löschen</button>
+    <div id="notesOutput" class="largerText">
+      <!-- Hier wird die Nachricht über gespeicherte Notiz angezeigt -->
     </div>
 
-    <button class="blueButton" onclick="deleteNotes()">Erledigt</button>
+    <button class="blueButton" onclick="toggleStrikeThrough()">Erledigt</button>
   </div>
 </div>
+
+<footer class="footer">
+  <p>(c) Alex12345H</p>
+</footer>
 
 <script src="notes.js"></script>
 </body>
