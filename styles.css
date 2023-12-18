@@ -1,12 +1,12 @@
+/* CSS für das zentrierte Layout */
 body {
   font-family: Arial, sans-serif;
-  font-size: 18px;
-  margin: 0;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
-  flex-direction: column;
   height: 100vh;
+  margin: 0;
 }
 
 .container {
@@ -33,10 +33,24 @@ body {
   font-size: 18px;
 }
 
-#notesOutput {
-  font-size: 18px;
+/* Styling für die Alerts */
+.alert {
+  text-align: center;
+  margin-top: 10px;
+  font-size: 16px;
+  font-weight: bold;
+  padding: 5px;
 }
 
+.success {
+  background-color: lightgreen;
+}
+
+.error {
+  background-color: red;
+}
+
+/* Styling für den Footer-Link */
 .footer {
   position: fixed;
   bottom: 10px;
@@ -44,3 +58,4 @@ body {
   width: 100%;
   color: #888;
 }
+
